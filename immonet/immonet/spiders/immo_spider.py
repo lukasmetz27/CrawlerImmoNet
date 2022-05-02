@@ -23,16 +23,25 @@ class ImmoNetSpider(scrapy.Spider):
             """müssen noch abwägen wie viele optionen: geht mithilfe einer if schleife schauen die länge des Splits an"""
 
             try:
-                typ = order.css("span.text-100::text").get()
-                typ = "".join(filter(str.isdigit, typ))
+                if len(order.css("span.text-100::text").get().split("•")) == 2:
+                    typ = order.css("span.text-100::text").get().split("•")[0].strip()
+                elif len(order.css("span.text-100::text").get().split("•")) == 3:
+                    typ = order.css("span.text-100::text").get().split("•")[1].strip()
             except:
                 typ = "None"
 
             try:
-                ort = order.css("span.text-100::text").get()
+                if len(order.css("span.text-100::text").get().split("•")) == 2:
+                    ort = order.css("span.text-100::text").get().split("•")[1].strip().replace("\n", "??").replace("\t",
+                                                                                                                   "??").replace(
+                        "?", "")
+                    ort = ort.translate
+                elif len(order.css("span.text-100::text").get().split("•")) == 3:
+                    ort = order.css("span.text-100::text").get().split("•")[2].strip().replace("\n", "??").replace("\t",
+                                                                                                                   "??").replace(
+                        "?", "")
             except:
-                ort = "None" 
-
+                ort = "None"
 
             try:
                 price = order.css("span.text-250::text").get()
