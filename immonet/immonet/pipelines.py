@@ -7,12 +7,6 @@
 # useful for handling different item types with a single interface
 from itemadapter import ItemAdapter
 
-"""             typ text,
-                ort text,
-                price text,
-                sqm text,
-                rooms text
-"""
 
 import mysql.connector
 
@@ -45,7 +39,8 @@ class ImmonetPipeline(object):
                 ort text,
                 price text,
                 sqm text,
-                rooms text
+                rooms text,
+                website text
                 )""")
 
 
@@ -55,11 +50,12 @@ class ImmonetPipeline(object):
         return item
 
     def store_db(self, item):
-        self.curr.execute("""insert into immo_tb values (%s, %s, %s, %s, %s)""", (
+        self.curr.execute("""insert into immo_tb values (%s, %s, %s, %s, %s, %s)""", (
             item["typ"][:],
             item["ort"][:],
             item["price"][:],
             item["sqm"][:],
             item["rooms"][:],
+            item["website"][:]
         ))
         self.conn.commit()

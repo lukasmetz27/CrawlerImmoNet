@@ -13,4 +13,5 @@ class ImmonetItem(scrapy.Item):
     price = scrapy.Field()
     sqm = scrapy.Field()
     rooms = scrapy.Field()
+    website = scrapy.Field()
 pass
