@@ -5,6 +5,9 @@
 * Store the data in relational database (MySql)
 * after collecting the data, I want to investigate, manipulate and scale the data to predict real estate prices
 
+# Table Structure
+![](/images/ImmonetTableStructure.png)
+
 # Code and Resources Used
 
 * Programming Language: Python
