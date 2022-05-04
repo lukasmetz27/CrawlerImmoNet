@@ -26,7 +26,7 @@ class ImmonetPipeline(object):
         self.conn = mysql.connector.connect(
             host = "127.0.0.1",
             user = "root",
-            passwd = "Wunderbar2701?!",
+            passwd = "*******",
             database = "immonet"
         )
         self.curr = self.conn.cursor()
