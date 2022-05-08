@@ -3,6 +3,7 @@
 * therefore we want to crawl multiple pages, not only the first
 * collect real-estate data like: Price, Square Meter, Number of Rooms, City, Date
 * Store the data in relational database (MySql)
+* automate it with cronjobs 
 * after collecting the data, I want to investigate, manipulate and scale the data to predict real estate prices
 
 # Table Structure
